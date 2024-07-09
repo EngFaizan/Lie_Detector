@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:lie_detector/Home_Page.dart';
 import 'dart:async';
 
 import 'package:lie_detector/main.dart';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
@@ -12,10 +15,10 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3), () {
-      // Navigate to the next screen after 3 seconds
+    Timer(const Duration(seconds: 3), () {
+      // Navigate to the home screen after 3 seconds
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => const MyHomePage(title: "Lie Detector"),
+        builder: (context) => Home_Page(),
       ));
     });
   }
@@ -32,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
           const Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: EdgeInsets.only(bottom: 50.0), // Adjust padding as needed
+              padding: EdgeInsets.only(bottom: 50.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
