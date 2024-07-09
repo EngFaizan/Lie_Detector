@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lie_detector/Dashboard.dart';
 
 class Home_Page extends StatefulWidget {
 
@@ -39,7 +40,12 @@ class Home_Page_State extends State<Home_Page>{
               height: 100,
               child: InkWell(
                 onTap: (){
-                  print('Start Button Tapped');
+                  Navigator.pushReplacement(
+                      context, 
+                      MaterialPageRoute(
+                          builder: (context) => Dashboard(),
+                      )
+                  );
                 },
                   child: Image.asset('assets/images/start btn.png')
               )
