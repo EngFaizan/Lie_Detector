@@ -75,7 +75,7 @@ class Animal_State extends State<Animal>{
                     Image.asset('assets/images/Cow Sound.png'),
                     Image.asset('assets/images/cowsound.png'),
                     Image.asset('assets/images/dogsound.png'),
-                    Image.asset('asset/images/dogsound (1).png')
+                    Image.asset('assets/images/dogsoundone.png')
                   ],
               ),
             ),

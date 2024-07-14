@@ -1,14 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:lie_detector/Animal.dart';
-import 'package:lie_detector/Baby_Sounds.dart';
 
-class Sounds extends StatefulWidget {
-  @override
-  State<Sounds> createState() => _SoundsState();
+class Baby_Sounds extends StatefulWidget{
+  State<Baby_Sounds> createState() => Baby_Sounds_State();
 }
 
-class _SoundsState extends State<Sounds> {
+class Baby_Sounds_State extends State<Baby_Sounds>{
   late final BannerAd bannerAd;
   bool isAdLoaded = false;
   final String adUnitId = "ca-app-pub-3940256099942544/6300978111"; // Test adUnit ID
@@ -30,7 +28,7 @@ class _SoundsState extends State<Sounds> {
           ad.dispose();
           print("Ad Failed to load: $error");
           // Retry loading the ad after some time
-          Future.delayed(Duration(seconds: 30), () {
+          Future.delayed(const Duration(seconds: 30), () {
             bannerAd.load();
           });
         },
@@ -58,7 +56,7 @@ class _SoundsState extends State<Sounds> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Text(
-            'Sounds',
+            'Baby Sounds',
             style: TextStyle(
               fontFamily: 'AntoSC-Regular',
               fontSize: 30,
@@ -68,59 +66,18 @@ class _SoundsState extends State<Sounds> {
           ),
           const SizedBox(height: 50),
           Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: 80,
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Animal()
-                        )
-                      );
-                    },
-                    child: Image.asset('assets/images/Animal Sound.png'),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                SizedBox(
-                  height: 80,
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Baby_Sounds()
-                          )
-                      );
-                    },
-                    child: Image.asset('assets/images/Baby Sound.png'),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                SizedBox(
-                  height: 80,
-                  child: InkWell(
-                    onTap: () {
-                      print('Gun Button Tapped');
-                    },
-                    child: Image.asset('assets/images/Gun Sound.png'),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                SizedBox(
-                  height: 80,
-                  child: InkWell(
-                    onTap: () {
-                      print('Trimmer Button Tapped');
-                    },
-                    child: Image.asset('assets/images/Trimmer Sound.png'),
-                  ),
-                ),
-              ],
+            child: Container(
+              padding: const EdgeInsets.all(2.0),
+              height: 400,
+              child: GridView.count(crossAxisCount: 2,
+                mainAxisSpacing: 10,
+                children: [
+                  Image.asset('assets/images/Baby Sound One.png'),
+                  Image.asset('assets/images/Baby Sound Two.png'),
+                  Image.asset('assets/images/Baby Sound Three.png'),
+                  Image.asset('assets/images/Baby Sound Four.png')
+                ],
+              ),
             ),
           ),
           const Spacer(),
