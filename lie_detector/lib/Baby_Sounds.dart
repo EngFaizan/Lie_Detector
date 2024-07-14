@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
+import 'Player.dart';
+
 class Baby_Sounds extends StatefulWidget{
   State<Baby_Sounds> createState() => Baby_Sounds_State();
 }
@@ -72,10 +74,62 @@ class Baby_Sounds_State extends State<Baby_Sounds>{
               child: GridView.count(crossAxisCount: 2,
                 mainAxisSpacing: 10,
                 children: [
-                  Image.asset('assets/images/Baby Sound One.png'),
-                  Image.asset('assets/images/Baby Sound Two.png'),
-                  Image.asset('assets/images/Baby Sound Three.png'),
-                  Image.asset('assets/images/Baby Sound Four.png')
+                  InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Player(
+                                    imagePath: 'assets/images/Baby Sound One.png',
+                                    audioPath: 'assets/audios/Baby Sound 1.mp3'
+                                )
+                            )
+                        );
+                      },
+                      child: Image.asset('assets/images/Baby Sound One.png')
+                  ),
+                  InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Player(
+                                    imagePath: 'assets/images/Baby Sound Two.png',
+                                    audioPath: 'assets/audios/Baby Sound 2.mp3'
+                                )
+                            )
+                        );
+                      },
+                      child: Image.asset('assets/images/Baby Sound Two.png')
+                  ),
+                  InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Player(
+                                    imagePath: 'assets/images/Baby Sound Three.png',
+                                    audioPath: 'assets/audios/Baby Sound 3.mp3'
+                                )
+                            )
+                        );
+                      },
+                      child: Image.asset('assets/images/Baby Sound Three.png')
+                  ),
+                  InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Player(
+                                    imagePath: 'assets/images/Baby Sound Four.png',
+                                    audioPath: 'assets/audios/Baby Sound 4.mp3'
+                                )
+                            )
+                        );
+                      },
+                      child: Image.asset('assets/images/Baby Sound Four.png')
+                  ),
                 ],
               ),
             ),

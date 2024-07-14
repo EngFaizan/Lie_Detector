@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:lie_detector/Player.dart';
 
 class Animal extends StatefulWidget{
   State<Animal> createState() => Animal_State();
@@ -72,10 +73,62 @@ class Animal_State extends State<Animal>{
               child: GridView.count(crossAxisCount: 2,
                   mainAxisSpacing: 10,
                   children: [
-                    Image.asset('assets/images/Cow Sound.png'),
-                    Image.asset('assets/images/cowsound.png'),
-                    Image.asset('assets/images/dogsound.png'),
-                    Image.asset('assets/images/dogsoundone.png')
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Player(
+                                    imagePath: 'assets/images/Cow Sound.png',
+                                    audioPath: 'assets/audios/Cow Sound 1.mp3'
+                                )
+                            )
+                        );
+                      },
+                        child: Image.asset('assets/images/Cow Sound.png')
+                    ),
+                    InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Player(
+                                      imagePath: 'assets/images/cowsound.png',
+                                      audioPath: 'assets/audios/Cow Sound 2.mp3'
+                                  )
+                              )
+                          );
+                        },
+                        child: Image.asset('assets/images/cowsound.png')
+                    ),
+                    InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Player(
+                                      imagePath: 'assets/images/dogsound.png',
+                                      audioPath: 'assets/audios/Dog Sound 1.mp3'
+                                  )
+                              )
+                          );
+                        },
+                        child: Image.asset('assets/images/dogsound.png')
+                    ),
+                    InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Player(
+                                      imagePath: 'assets/images/dogsoundone.png',
+                                      audioPath: 'assets/audios/Dog Sound 2.mp3'
+                                  )
+                              )
+                          );
+                        },
+                        child: Image.asset('assets/images/dogsoundone.png')
+                    ),
                   ],
               ),
             ),
