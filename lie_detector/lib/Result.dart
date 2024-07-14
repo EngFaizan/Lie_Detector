@@ -56,16 +56,9 @@ class Result_State extends State<Result> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(
-            height: 200,
-            child: Image.asset('assets/images/BANNER.png'),
-          ),
-          SizedBox(
-            height: 50,
-            child: Image.asset('assets/images/Lights.png'),
-          ),
+          SizedBox(height: 40),
           const Text(
-            'TRUE',
+            'DETECTOR',
             style: TextStyle(
               fontFamily: 'AntoSC-Regular',
               fontSize: 30,
@@ -73,6 +66,24 @@ class Result_State extends State<Result> {
               color: Colors.white,
             ),
           ),
+          const SizedBox(height: 20),
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              Image.asset('assets/images/BANNER.png'),
+              const Text(
+                'TRUE',
+                style: TextStyle(
+                  fontFamily: 'AntoSC-Regular',
+                  fontSize: 30,
+                  fontWeight: FontWeight.w900,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
+          Image.asset('assets/images/Lights.png'),
           const Spacer(),
           if (isAdLoaded)
             Container(
