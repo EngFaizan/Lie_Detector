@@ -2,14 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-class Gun_Sounds extends StatefulWidget{
-  State<Gun_Sounds> createState() => Gun_Sounds_State();
+class Trimmer extends StatefulWidget {
+  @override
+  State<Trimmer> createState() => Trimmer_State();
 }
 
-class Gun_Sounds_State extends State<Gun_Sounds>{
+class Trimmer_State extends State<Trimmer> {
   late final BannerAd bannerAd;
   bool isAdLoaded = false;
   final String adUnitId = "ca-app-pub-3940256099942544/6300978111"; // Test adUnit ID
+  bool isTrimmerOn = true; // Variable to track the current image
 
   @override
   void initState() {
@@ -44,6 +46,12 @@ class Gun_Sounds_State extends State<Gun_Sounds>{
     super.dispose();
   }
 
+  void toggleImage() {
+    setState(() {
+      isTrimmerOn = !isTrimmerOn;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,7 +64,7 @@ class Gun_Sounds_State extends State<Gun_Sounds>{
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Text(
-            'Gun Sounds',
+            'Trimmer Sound',
             style: TextStyle(
               fontFamily: 'AntoSC-Regular',
               fontSize: 30,
@@ -66,17 +74,14 @@ class Gun_Sounds_State extends State<Gun_Sounds>{
           ),
           const SizedBox(height: 50),
           Center(
-            child: Container(
-              padding: const EdgeInsets.all(2.0),
-              height: 400,
-              child: GridView.count(crossAxisCount: 2,
-                mainAxisSpacing: 10,
-                children: [
-                  Image.asset('assets/images/Gun Sound One.png'),
-                  Image.asset('assets/images/Gun Sound Two.png'),
-                  Image.asset('assets/images/Gun Sound Three.png'),
-                  Image.asset('assets/images/Gun Sound Four.png')
-                ],
+            child: GestureDetector(
+              onTap: toggleImage,
+              child: Container(
+                padding: const EdgeInsets.all(2.0),
+                height: 400,
+                child: Image.asset(
+                  isTrimmerOn ? 'assets/images/Trimmer ON.png' : 'assets/images/Trimmer OFF.png',
+                ),
               ),
             ),
           ),

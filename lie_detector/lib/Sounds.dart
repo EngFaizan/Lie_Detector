@@ -3,6 +3,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:lie_detector/Animal.dart';
 import 'package:lie_detector/Baby_Sounds.dart';
 import 'package:lie_detector/Gun_Sounds.dart';
+import 'package:lie_detector/Trimmer.dart';
 
 class Sounds extends StatefulWidget {
   @override
@@ -121,7 +122,12 @@ class _SoundsState extends State<Sounds> {
                   height: 80,
                   child: InkWell(
                     onTap: () {
-                      print('Trimmer Button Tapped');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Trimmer()
+                          )
+                      );
                     },
                     child: Image.asset('assets/images/Trimmer Sound.png'),
                   ),
