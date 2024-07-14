@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lie_detector/Sounds.dart';
 
 class Dashboard extends StatefulWidget{
   State<Dashboard> createState() => Dashboard_State();
@@ -49,7 +49,12 @@ class Dashboard_State extends State<Dashboard>{
                 height: 80,
                 child: InkWell(
                     onTap: (){
-                      print('Sound Button Tapped');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Sounds()
+                        )
+                      );
                     },
                     child: Image.asset('assets/images/ENJOYSOUND.png')
                 )
