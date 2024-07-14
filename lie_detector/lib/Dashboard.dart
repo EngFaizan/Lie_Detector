@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lie_detector/Detector.dart';
 import 'package:lie_detector/Sounds.dart';
 
 class Dashboard extends StatefulWidget{
@@ -37,7 +38,12 @@ class Dashboard_State extends State<Dashboard>{
                 height: 80,
                 child: InkWell(
                     onTap: (){
-                      print('Start Button Tapped');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Detector()
+                          )
+                      );
                     },
                     child: Image.asset('assets/images/STARTSCANNER.png')
                 )
